@@ -1,0 +1,85 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+
+\chapter{Indledning}
+
+\section{Introduktion}
+    I noget af min tid på Datamatiker uddannelsen hos Københavns Erhvervsakademi har jeg benyttet Bogstøtten hos Fountain House København.
+
+    \blockcquote[\textemdash][]{fountainhouse}{
+        Fontænehusmodellen er en international fællesskabsorienteret psykosocial rehabiliteringsmodel, der styrker mennesker i at bryde isolation og til at klare sig selv socialt, økonomisk, uddannelses- og beskæftigelsesmæssigt.
+        \enskip
+        Medlemskab er frivilligt og tidsubegrænset, og medlemmer har en høj grad af medindflydelse på alt lige fra dagligdags beslutninger om, hvad menuen i kantinen skal være, til mere strategiske beslutninger i bestyrelsen.
+        \enskip
+        Alle er tilknyttet en enhed—i Bogstøtten arbejder medlemmer med egne studier og bidrager også til fællesskab og fælles opgaver, i Ungehuset Fontana arbejder medlemmer kreativt med billedkunst, keramik eller musik og bidrager også til fællesskab og fælles opgaver, i Kernehuset arbejder medlemmer frivilligt i vores arbejdsfællesskaber med at drive café, køkken, kontor og værksted.
+        \enskip
+        Nogle medlemmer er aktive i huset hver dag, andre kommer en gang om ugen.
+        \enskip
+        Udover dagligdagsprogrammet, har vi et socialt program med fællesmiddag, fyraftensmøder, styrketræning, filmklub, koncerter mm.
+        \enskip
+        Vi har omkring 40 medlemmer i huset hver dag og omkring 150 forskellige medlemmer i løbet af en måned.
+    }
+
+    I den tid har jeg opdaget et lile irritationsmoment i forhold til de sociale arrangementer der bliver afholdt.
+    \enskip
+    Jeg bragte emnet op, og det endte med at blive til noget hvor de gerne ville være med til at afprøve idéer til forbedringer og jeg kunne skrive en opgave om det.
+
+
+\section{Problemstilling}
+    Foreningen Fountain House afholder mange arrangementer, både af større og mindre slags.
+    \enskip
+    Eksempelvis er der regelmæssige \enquote{klubber} (gåklub, filmaften, osv.), diverse møder (interne sofamøder, fællesmøder, åbent hus, osv.), såvel som mere frit planlagte festlige arrangementer (jubilæum, foredrag, julefrokost, osv.).
+
+    Til nogle af disse arrangementer er det vigtigt at vide hvor mange der deltager, men andre gange er det vigtigst bare at kommunikere hvor og hvornår det foregår.
+    \enskip
+    I dag er løsningen således:
+    \begin{enumerate}
+        \item Lav et ny Word-dokument.
+        \item Skriv en overskrift, lidt tekst, og en s.u.
+        \item Tegn en tabel med plads til navne.
+        \item Print en håndfuld kopier.
+        \item Hæng tilmeldingssedlerne fast på opslagstavlerne i bygningen.
+    \end{enumerate}
+
+    Denne løsning er simpel og nemt tilgængelig for husets medlemmer og medarbejdere, men det har også et par svagheder som jeg vil forsøge at opremse her:
+
+    \begin{itemize}
+        \item Det kan være svært at vide hvor man skal kigge efter nye arrangementer da der er flere opslagstavler.
+        \item Opslagstavlerne bliver nemt rodede med gamle sedler og plakater som ikke længere er relevante.
+        \item Derfor er det ret nemt at overse nye opslag på opslagstavlerne
+        \item Det ville være godt at bruge mindre papir som bare bliver smidt ud efter 7–14 dage.
+        \item Det kan være besværligt at danne overblik når tilmeldinger er spredt over flere lister.
+    \end{itemize}
+
+    Fountain House har også en gruppe medlemmer som bruger deres tid på at lave diverse kontor- og IT-opgaver, herunder grafik til plakater, opdatere indhold på webside, samt holde diverse
+    \enquote{regnskaber} og Excel-ark ajour.
+    \enskip
+    Eksempelvis er man for nyligt begyndt at bruge en tablet i receptionen, hvor medlemmer kan registrere når de ankommer—og evt. når de forlader igen—dette gør det muligt at lave en smule statistik.
+    \enskip
+    Statistikken har både til formål at hjælpe med indberetning af antal medlemmer til kommunen i forbindelse med diverse tilskud, men også til at opdage hvis medlemmer begynder at komme sjældnere.
+    \enskip
+    Med den oversigt kan medarbejde nemmere gøre noget for at gribe medlemmer der måske er på vej ind i en svær periode inden de falder helt ud af deres gode vaner.
+
+    Så på den baggrund er Fountain House friske på, at køre en test hvor der udvikles et system som kan afløse eller supplere de fysiske tilmeldingsedler.
+    \enskip
+    Målet er at få noget erfaring med de fordele som et digitalt system kunne bringe, samt have et øje på de ting som bliver mere omstændige.
+
+
+\section{Problemformulering}
+    Kan jeg med udgangspunkt i en iterativ og evolutionær arbejdsmetode som Scrum, bruge feedback fra medlemmer og medarbejdere i Fountain House, til at udvikle en funktionel prototype på et system hvor medlemmer nemt kan tilmelde sig diverse arrangementer samt opdage nye arrangementer, og kan jeg give medarbejderne mulighed for nemmere at oprette og annoncere nye arrangementer, samt hjælpe dem med at danne sig overblik med tilmeldingerne.
+
+
+\section{Afgrænsning og Metode}
+    Efter som dette er en solo-opgave har jeg besluttet at fokusere på visse dele af projektet end  andre;
+    \enskip
+    Jeg ville gerne have at processen med at finde frem til en velfungerende brugerflade gennem bruger-testing blev prioriteret, da jeg tænkte at en god måde at få integreret et sådan system er ved at både medarbejdere og medlemmer har lyst til at bruge det.
+    \enskip
+    Derfor har jeg også valgt at tage udgangspunkt i Scrum-metoden da den bekymrer sig mindre om fuldkomment definerede artefakter end f.eks. Unified Process, og tilgengæld har nogle regelmæssige ritualer som f.eks. standup og review.
+    \todo[inline]{Find kilder på scrum og unified process?}
+    \enskip
+    En risiko ved artefakter er også at de risikerer at blive misligeholdt og uddaterede. Dette kan være til stor frustration og forvirring hvis man tror man kan bruge det som dokumentation. En anden tilgang er Literate Programming hvor dokumentation og systemet bygges fra samme kildekode, et eksempel på dette er f.eks. hvis man bruger et rammeværktøj som integrerer med Swagger sådan at når man definerer sine HTTP ruter definerer man samtidigt dokumentationen, eller hvis man bruger et ORM system hvor man både kan producere et ER diagram og SQL DDL.
+    \todo[inline]{Find quotes of links til ORM, Swagger, og DDL?}
+
+
+\end{document}

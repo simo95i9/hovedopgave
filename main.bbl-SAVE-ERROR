@@ -1,0 +1,110 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{fountainhouse}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=de6b24b7ad99d70c83d93b52649112b8}{%
+           family={{Fountain House København}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{de6b24b7ad99d70c83d93b52649112b8}
+      \strng{fullhash}{de6b24b7ad99d70c83d93b52649112b8}
+      \strng{bibnamehash}{de6b24b7ad99d70c83d93b52649112b8}
+      \strng{authorbibnamehash}{de6b24b7ad99d70c83d93b52649112b8}
+      \strng{authornamehash}{de6b24b7ad99d70c83d93b52649112b8}
+      \strng{authorfullhash}{de6b24b7ad99d70c83d93b52649112b8}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{\enquote{Om Fountain House København}}
+      \field{urlday}{29}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://fountainhousecph.dk/om-fountain-house/
+      \endverb
+      \verb{url}
+      \verb https://fountainhousecph.dk/om-fountain-house/
+      \endverb
+    \endentry
+    \entry{hawking1988}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d6208a0d89bbe93d54449bb980342d85}{%
+           family={Hawking},
+           familyi={H\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Bantam}%
+      }
+      \strng{namehash}{d6208a0d89bbe93d54449bb980342d85}
+      \strng{fullhash}{d6208a0d89bbe93d54449bb980342d85}
+      \strng{bibnamehash}{d6208a0d89bbe93d54449bb980342d85}
+      \strng{authorbibnamehash}{d6208a0d89bbe93d54449bb980342d85}
+      \strng{authornamehash}{d6208a0d89bbe93d54449bb980342d85}
+      \strng{authorfullhash}{d6208a0d89bbe93d54449bb980342d85}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{subtitle}{From the Big Bang to Black Holes}
+      \field{title}{A Brief History of Time}
+      \field{year}{1988}
+      \field{dateera}{ce}
+      \true{nocite}
+    \endentry
+    \entry{parenti2021}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6bff12940e1697e17f0c19bf97e7ddf9}{%
+           family={Parenti},
+           familyi={P\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {City Lights}%
+      }
+      \strng{namehash}{6bff12940e1697e17f0c19bf97e7ddf9}
+      \strng{fullhash}{6bff12940e1697e17f0c19bf97e7ddf9}
+      \strng{bibnamehash}{6bff12940e1697e17f0c19bf97e7ddf9}
+      \strng{authorbibnamehash}{6bff12940e1697e17f0c19bf97e7ddf9}
+      \strng{authornamehash}{6bff12940e1697e17f0c19bf97e7ddf9}
+      \strng{authorfullhash}{6bff12940e1697e17f0c19bf97e7ddf9}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{title}{Against Empire}
+      \field{year}{1995}
+      \field{dateera}{ce}
+      \true{nocite}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

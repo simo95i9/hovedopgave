@@ -1,0 +1,91 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\chapter{Systemudvikling}
+
+
+\section{Virksomhedsbeskrivelse}
+\subsection{Interessent analyse}
+
+
+\section{Projektplan}
+    \subsection{Risikoanalyse}
+
+
+\section{Kravspecifikation}
+    \subsection{Kravindsamling}
+        Kravene er blevet fundet gennem samtaler med medlemmer og medarbejdere i Fountain House, samt mine erfaringer som medlem i Bogstøtten. Her er de kort opridset som funktionelle og ikke-funktionelle krav.
+
+
+    \subsection{Funktionelle krav}
+        Med systemet skal en bruger kunne\dots
+        \begin{itemize}
+            \item oprette en konto.
+            \item knytte et navn og billede til deres konto.
+            \item oprette en begivenhed.
+            \item knytte en beskrivelse til en begivenhed.
+            \item tilføje opdateringer til en begivenhed.
+            \item tilmelde sig en begivenhed.
+            \item vise brugere som har tilmeldt sig en begivenhed.
+            \item se de nyeste begivenheder.
+            \item se begivenheder som de har tilmeldt sig.
+            \item se opdateringer på de begivenheder som de har tilmeldt sig.
+        \end{itemize}
+
+
+    \subsection{Ikke-funktionelle krav}
+        Systemet skal bedst muligt\dots
+        \begin{itemize}
+            \item være robust over for brugerinput.
+            \item ligne eksisterende webside.
+            \item have et simpelt og hurtigt flow, der er allerede en \enquote{god nok} løsning.
+            \item følge god praksis i forhold til sikkerhed
+        \end{itemize}
+
+
+    \subsection{User Stories}
+        Her er nogle af de funktionelle krav blevet omskrevet til User Stories, der er blevet udeladt de mest basale krav relateret til konto-håndtering.
+
+        \begin{description}
+            \item[Som] medarbejder
+            \item[vil jeg] oprette en begivenhed med beskrivelse
+            \item[fordi] andre skal vide hvad der foregår i huset
+        \end{description}
+
+        \begin{description}
+            \item[Som] medlem
+            \item[vil jeg] se de nyeste begivenheder
+            \item[fordi] så ved jeg hvad der foregår i huset 
+        \end{description}
+
+        \begin{description}
+            \item[Som] medarbejder
+            \item[vil jeg] se tilmeldte medlemmer
+            \item[fordi] så ved hvor mange der deltager
+        \end{description}
+
+        \begin{description}
+            \item[Som] medarbejder
+            \item[vil jeg] skrive en opdatering på en begivenhed
+            \item[fordi] så jeg kan kommunikere ændringer
+        \end{description}
+
+        \begin{description}
+            \item[Som] medlem
+            \item[vil jeg] se opdateringer fra tilmeldte begivenheder
+            \item[fordi] så jeg ved hvis der er ændringer
+        \end{description}
+
+        \begin{description}
+            \item[Som] medlem
+            \item[vil jeg] kommentere på begivenheder
+            \item[fordi] så andre kan høre mine input
+        \end{description}
+
+
+    \subsection{ER-diagram}
+        I ånd med at skære ned på artefakter springer jeg domænemodellen over og producerer et ER-diagram. Efter kravindsamlingen og analyses har jeg dannet et godt indtryk af de dele som systemet består af.
+        \todo[inline]{ret prisma fil og lav et ER-diagram}
+
+
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\chapter{Implementering}
+
+\section{Design}
+\subsection{Brugerflade}
+
+
+
+\section{Kode}
+    I dette afsnit vil jeg kommentere på udvalgte dele af kildekoden og retfærdiggøre valget af teknologier og rammeværktøjer og diskutere nogle af de overvejelser der er blevet gjort i den forbindelse.
+
+    \subsection{Programmeringssprog}
+        Jeg har valgt TypeScript.
+        Jeg har valgt Bun runtime.
+
+    \subsection{Database}
+        Jeg har valgt at bruge en SQLite database.
+        \enskip
+        En af hovedårsagerne er fordi SQLite ikke kræver at der kører en databaseserver ved siden af appserveren, da SQLite \enquote{bare} benytter en en enkelt fil på harddisken—en egenskab der også er med til at gøre backup meget simplere.
+        \todo[inline]{Find citat fra sqlite.org}
+    
+
+    \subsection{Object Relational Mapping—ORM}
+        Jeg har valgt at bruge en ORM fordi det giver rigtig mange fordele ved at man ikke manuelt behøver skrive DDL eller DML.
+        \enskip
+        Man får også, som navnet indikerer, automatisk håndteret vekslingen mellem relationer i databasen og objekter i programmeringsproget, desuden tilbyder en ORM også validering af skema og hjælper med skemamigration. 
+        \enskip
+        Specifikt har jeg valgt Prisma, fordi de inkluderer et simpelt konfigurationssprog til at definere databaseskemaet og et værktøj som foretager skemamigrationen.
+        \todo[inline]{Lav et link til prisma}
+
+
+    \subsection{GraphQL}
+        GraphQL er et koncept udviklet af Facebook som prøve at gøre op med traditionelle RESTful APIer, og give større fleksibilitet til både frontend og backend teams.
+        \enskip
+        Efterhånden som det er blevet mere og mere almindeligt at gå væk fra en \enquote{monolit}-struktur og i stedet have separat frontend og backend fandt man ud af at enten kunne man have en API der var meget modulær og løst koblet fra brugerfladen, eller man kunne have en API der var meget skræddersyet og tæt koblet til brugerfladen.
+
+        \marginnote{Dette er tæt relateret til N+1 problemet i databaser, men det er forværret af at frontend kommunikerer gennem HTTP som har en betydeligt større forsinkelse end en databaseforbindelse.}
+        Begge tilgang har sine svagheder, med en løst koblet API ender det med at være meget ineffektivt fordi frontend er nødt til at lave mange forespørgsler til serveren hvor gang en side skal indlæses.
+        \enskip
+        Det er både langsomt for slutbrugeren og kan sætte et stort pres på serveren.
+        
+        Omvendt vil en tæt koblet API kræve koordinerering på tværs af teams hver gang der skal ændres i brugerfladen.
+        \enskip
+        Koordineringen og overleveringen mellem teams kan virkelig sænke leveringstempoet på ny funktionalitet og fejlrettelser.
+
+        Og her kommer GraphQL ind i billedet.
+        \enskip
+        GraphQL gør at frontend kan definere præcist hvilke ressourcer de vil se, og hvilke attributer de vil have med.
+        \enskip
+        GraphQL-serveren har en såkaldt \enquote{resolver} som finder ud af hvordan den bedst muligt kan hente den information fra databasen, om nødvendigt laver den flere forespørgsler til databasen og svarer tilbage med præcist den information som frontend bad om.
+        \enskip
+        Nu kan frontend teamet og backend teamet arbejde mere uafhængigt fordi APIen er løst koblet. Men man får stadig fordelen fra en tæt koblet API, nemlig lav forsinkelse fordi der kun sendes én HTTP forespørgsel.
+        \todo[inline]{find citat og kode eksempel på graphql, og link til graphql}
+    
+
+\section{Sikkerhed}
+
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{preamble}
+\usepackage{subfiles}
+% \geometry{ showframe }
+
+\addbibresource{sources.bib}
+
+
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{\theauthor}
+\fancyhead[C]{Københavns Erhvervsakademi}
+\fancyhead[R]{\today}
+\fancyfoot[C]{\textbf{\thepage}}
+\renewcommand{\headrulewidth}{.5pt}
+\renewcommand{\footrulewidth}{.5pt}
+
+
+\begin{document}
+    % TODO: Make a cooler title page, like the one on the internship paper, maybe use KOMAscript and replace titlesec?
+    \title{Hovedopgave Datamatiker}
+    \author{Simon Gredal}
+    \date{\today}
+    \maketitle
+    
+    \begin{frontmatter}
+        \subfile{chapters/00-indhold}
+    \end{frontmatter}
+
+    \begin{mainmatter}
+        \subfile{chapters/01-indledning}
+        \subfile{chapters/02-planlægning}
+        \subfile{chapters/03-implementering}
+        \subfile{chapters/04-afrunding}
+    \end{mainmatter}
+
+    \begin{backmatter}
+        \subfile{chapters/05-bilag}
+    \end{backmatter}
+\end{document}

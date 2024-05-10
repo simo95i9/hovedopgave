@@ -1,0 +1,261 @@
+\ProvidesPackage{preamble}
+
+\usepackage{geometry}
+\geometry{paper=a4paper, portrait}
+
+\usepackage{fontspec}
+
+\usepackage{polyglossia}
+\setmainlanguage{danish}
+\setotherlanguage[variant=american]{english}
+
+\usepackage{translations}
+\DeclareTranslation{danish}{Page}{Side}
+\DeclareTranslation{danish}{of}{af}
+\DeclareTranslation{danish}{Table of Contents}{Indholdsfortegnelse}
+
+
+% Random Stuff
+\usepackage{datetime2}
+\usepackage{lipsum}
+\usepackage[section]{tocbibind}
+\renewcommand{\tableofcontents}{\begingroup
+    \settocname{\expandafter\GetTranslation\expandafter{Table of Contents}}{}
+    \tocsection
+    \tocfile{\contentsname}{toc}
+\endgroup}
+\usepackage{titling}
+\usepackage{etoolbox}
+\usepackage{mathtools}
+\usepackage{subfiles}
+\usepackage[svgnames]{xcolor}
+\usepackage{minted}
+\usepackage[danish=guillemets, csdisplay=true]{csquotes}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{silence}
+\usepackage[skip=0.75em, parfill]{parskip}
+\usepackage{hologo}
+\hologoFontSetup{general=\large}
+
+
+\usepackage[color=Orange!30!Yellow]{todonotes}
+\makeatletter
+\renewcommand{\listoftodos}[1][\@todonotes@todolistname]{\@starttoc{tdo}}
+\makeatother
+
+
+\usepackage[style=reading, sorting=nyt, defernumbers=true]{biblatex}
+\renewcommand{\bibfont}{\normalsize}
+
+
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+
+
+% General Formating of titles and marginnotes and other stuff
+\setromanfont{Minion Pro}
+\setsansfont{Helvetica Now Display}
+\setmonofont{Berkeley Mono}
+
+% \usepackage[pagecolor=White!25!AntiqueWhite]{pagecolor}
+\renewcommand{\normalsize}{\fontsize{12}{16}\selectfont}
+\RaggedRight
+\frenchspacing
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\addtolength{\headwidth}{\marginparwidth}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\sffamily\huge\mdseries\upshape}{\chaptertitlename\enspace\thechapter}
+{0pt}{\sffamily\Huge\bfseries}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+
+\titleformat{\section}[hang]
+{\sffamily\Large\bfseries}{\thesection.}
+{1em}{}[{\titlerule[4pt]}]
+\titlespacing*{\section}{0pt}{*4}{*2}
+
+\titleformat{\subsection}[hang]
+{\sffamily\large\bfseries}{\thesubsection.}
+{.5em}{}[]
+\titlespacing*{\subsection}{0pt}{*3}{*1}
+
+
+\setlist{leftmargin=5em, labelsep*=1em, noitemsep, topsep=-.5em}
+\setlist[enumerate]{label=\textbf{\arabic*.}}
+\setlist[itemize]{label=\textbf{\textendash}}
+\setlist[description]{labelwidth=3em, align=right}
+
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\normalcolor\rmfamily\small}
+\edef\marginnotevadjust{.8em}
+
+
+% Code Syntax Highlighting
+\renewcommand{\MintedPygmentize}{venv/bin/pygmentize}
+\setminted{
+    autogobble,
+    breaklines,
+    linenos,
+    fontsize=\small,
+    numbersep=8pt,
+    tabsize=4,
+    style=solarized-light,
+}
+\renewcommand{\theFancyVerbLine}{\ttfamily\footnotesize\color{black!60}\arabic{FancyVerbLine}}
+\AtBeginEnvironment{minted}{\setlength\partopsep{0pt}\setlength\topsep{0pt}\setlength\parskip{0pt}}
+
+\usepackage{mdframed}
+\mdfdefinestyle{mycodestyle}{
+    hidealllines=false,
+    backgroundcolor=AntiqueWhite,
+    skipabove=1em,
+    rightmargin=0pt,
+    skipbelow=1em,
+    leftmargin=0pt,
+    innertopmargin=.5em,
+    innerrightmargin=.5em,
+    innerbottommargin=.5em,
+    innerleftmargin=3em,
+}
+\surroundwithmdframed[style=mycodestyle]{minted}
+\let\thingy\inputminted
+\renewcommand{\inputminted}[2]{\begin{mdframed}[style=mycodestyle]\thingy{#1}{#2}\end{mdframed}}
+
+
+\mdfdefinestyle{mytablestyle}{
+    hidealllines=true,
+    backgroundcolor=AntiqueWhite,
+    skipabove=1em,
+    rightmargin=0em,
+    skipbelow=1em,
+    leftmargin=0em,
+    innertopmargin=0em,
+    innerrightmargin=0em,
+    innerbottommargin=0em,
+    innerleftmargin=0em,
+}
+\surroundwithmdframed[style=mytablestyle]{tabularx}
+
+
+\mdfdefinestyle{myquotestyle}{
+    hidealllines=true,
+    leftline=true,
+    linewidth=.25em,
+    linecolor=Black!25!AntiqueWhite,
+    backgroundcolor=AntiqueWhite,
+    skipabove=1em,
+    rightmargin=0em,
+    skipbelow=1em,
+    leftmargin=3em,
+    innertopmargin=.5em,
+    innerrightmargin=1em,
+    innerbottommargin=.5em,
+    innerleftmargin=1em,
+}
+\newenvironment{myquote}{\begin{mdframed}[style=myquotestyle]\RaggedRight}{\end{mdframed}}
+\surroundwithmdframed[style=myquotestyle]{description}
+\SetBlockEnvironment{myquote}
+    
+
+% Geometry needs to be defined inside the document, so we create
+% these named geometries at the start
+\AtBeginDocument{%
+    \newgeometry{ includeall, margin=2cm, head=1cm, nomarginpar }
+    \savegeometry{meta}
+    \restoregeometry
+    
+    \newgeometry{ includeall, margin=2cm, head=1cm, marginpar=4cm }
+    \savegeometry{body}
+    \restoregeometry
+}%
+
+
+\newenvironment{frontmatter}{%
+    \clearpage\loadgeometry{meta}
+    
+    % marginnotes needs to be notified after geometry changes
+    \edef\marginnotetextwidth{\the\textwidth}
+
+    \fancyfoot[C]{}
+    \fancyfoot[R]{\GetTranslation{Page}\ \textbf{\thepage}\ \GetTranslation{of} \textbf{\pageref{end:frontmatter}}}
+
+    % Use roman numerals for page numbers in frontmatter
+    \setcounter{page}{1}
+    \pagenumbering{roman}
+    % Use arabic numerals for section numbers in frontmatter
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}{
+    % Label at the end of the frontmatter to make the page numbering possible
+    \nopagebreak
+    \label{end:frontmatter}
+    \clearpage
+}
+
+\newenvironment{mainmatter}{%
+    \clearpage\loadgeometry{body}
+    
+    % marginnotes needs to be notified after geometry changes
+    \edef\marginnotetextwidth{\the\textwidth}
+
+    \fancyfoot[C]{}
+    \fancyfoot[R]{\GetTranslation{Page}\ \textbf{\thepage}\ \GetTranslation{of} \textbf{\pageref{end:mainmatter}}}
+
+    % Use arabic numerals for page numbers in mainmatter
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+    % Use arabic numerals for section numbers in mainmatter
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}{
+    % Label at the end of the mainmatter to make the page numbering possible
+    \nopagebreak
+    \label{end:mainmatter}
+    \clearpage
+}
+
+\newenvironment{backmatter}{%
+    \clearpage\loadgeometry{meta}
+    
+    % marginnotes need to be notified after geometry changes
+    \edef\marginnotetextwidth{\the\textwidth}
+
+    \fancyfoot[C]{}
+    \fancyfoot[R]{\GetTranslation{Page}\ \textbf{\thepage}\ \GetTranslation{of} \textbf{\pageref{end:backmatter}}}
+
+    % Use alphabetic numerals for page numbers in backmatter
+    \setcounter{page}{1}
+    \pagenumbering{alph}
+    % Use arabic numerals for section numbers in backmatter
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}{
+    % Label at the end of the backmatter to make the page numbering possible
+    \nopagebreak
+    \label{end:backmatter}
+    \clearpage
+}
+
+% Apparently it's highly recommended to load this last
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor={DarkBlue}, urlcolor={Purple}, citecolor={Green}}
+
+
+% I'm putting the texcount macro at the end since the awk $ really confuses syntax highlighting
+\newcommand{\texcount}[2]{
+    \immediate\write18{texcount -inc -total #1.tex > #1.wc}
+    \immediate\write18{texcount -1 -sum -inc -char #1.tex > #1.cc}
+    \immediate\write18{awk '{ printf "Number of normal pages (2400 char.): \%.2f \%c", $1/2400, 10 }' #1.cc > #1.pc}
+    \immediate\write18{head -1 #1.wc > #1.tc && cat #1.pc >> #1.tc && tail -n +2 #1.wc >> #1.tc}
+    \immediate\write18{cat #1.tc | column -t -s ':' | tee #1.tc}
+    \inputminted{text}{#1.tc}
+    \immediate\write18{rm -f #1.wc #1.cc #1.pc #1.tc}
+}

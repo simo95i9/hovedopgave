@@ -1,0 +1,1 @@
+ unshift @ARGV, '-xelatex', '-shell-escape', '-interaction=nonstopmode', '-cd';
